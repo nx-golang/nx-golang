@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "name": "cobra",
+  "version": "0.0.1",
+  "generators": {
+    "cobra": {
+      "factory": "./src/generators/cobra/generator",
+      "schema": "./src/generators/cobra/schema.json",
+      "description": "cobra generator"
+    }
+  }
+}
