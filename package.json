@@ -2,7 +2,16 @@
   "name": "nx-golang",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "build": "nx build",
+    "format": "nx format:write",
+    "format:write": "nx format:write",
+    "format:check": "nx format:check",
+    "lint": "nx run nx-go:lint --maxWarnings=0",
+    "nx": "nx",
+    "start": "nx serve",
+    "test": "nx test"
+  },
   "private": true,
   "dependencies": {
     "@nrwl/nx-plugin": "^15.4.2",
