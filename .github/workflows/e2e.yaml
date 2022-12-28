@@ -35,7 +35,7 @@ jobs:
           run_install: |
             - args: [--frozen-lockfile, --strict-peer-dependencies]
       - name: Run format check
-        run: pnpm run format:check -- --base=remotes/origin/main
+        run: pnpm run format:check
       - name: Run linter
         run: pnpm run nx affected:lint
       - name: Run e2e test
