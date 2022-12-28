@@ -13,8 +13,6 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
       - name: Use Go ${{ matrix.go-version }}
         uses: actions/setup-go@v3
         with:
