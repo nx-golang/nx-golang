@@ -4,10 +4,10 @@
   "license": "MIT",
   "scripts": {
     "build": "nx build",
-    "format": "nx format:write",
-    "format:write": "nx format:write",
-    "format:check": "nx format:check",
-    "lint": "nx affected:lint --maxWarnings=0",
+    "format": "nx format:write  --base origin/main",
+    "format:write": "nx format:write --base origin/main",
+    "format:check": "nx format:check --base origin/main",
+    "lint": "nx affected:lint --maxWarnings=0  --base origin/main",
     "nx": "nx",
     "start": "nx serve",
     "test": "nx test"
