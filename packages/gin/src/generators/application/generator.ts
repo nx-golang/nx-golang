@@ -9,6 +9,7 @@ import {
 } from '@nrwl/devkit';
 import * as path from 'path';
 import { ApplicationGeneratorSchema } from './schema';
+import { toPosixPath, createGoMod, updateGoWork } from '../../util';
 
 interface NormalizedSchema extends ApplicationGeneratorSchema {
   projectName: string;
@@ -26,7 +27,7 @@ function normalizeOptions(
     ? `${names(options.directory).fileName}/${name}`
     : name;
   const projectName = projectDirectory.replace(new RegExp('/', 'g'), '-');
-  const projectRoot = `${getWorkspaceLayout(tree).libsDir}/${projectDirectory}`;
+  const projectRoot = `${getWorkspaceLayout(tree).appsDir}/${projectDirectory}`;
   const parsedTags = options.tags
     ? options.tags.split(',').map((s) => s.trim())
     : [];
@@ -53,20 +54,43 @@ function addFiles(tree: Tree, options: NormalizedSchema) {
     options.projectRoot,
     templateOptions
   );
+
+  createGoMod(tree, options);
+  updateGoWork(tree, options);
 }
 
 export default async function (
   tree: Tree,
   options: ApplicationGeneratorSchema
 ) {
-  const normalizedOptions = normalizeOptions(tree, options);
+  const normalizedOptions = normalizeOptions(
+    tree,
+    options
+  );
   addProjectConfiguration(tree, normalizedOptions.projectName, {
     root: normalizedOptions.projectRoot,
-    projectType: 'library',
+    projectType: 'application',
     sourceRoot: `${normalizedOptions.projectRoot}/src`,
     targets: {
       build: {
         executor: '@nx-golang/gin:build',
+        options: {
+          outputPath: toPosixPath,
+        },
+      },
+      serve: {
+        executor: '@nx-golang/gin:serve',
+        options: {
+          main: toPosixPath(
+            path.join(normalizedOptions.projectRoot, 'main.go')
+          ),
+        },
+      },
+      test: {
+        executor: '@nx-golang/gin:test',
+      },
+      lint: {
+        executor: '@nx-golang/gin:lint',
       },
     },
     tags: normalizedOptions.parsedTags,
