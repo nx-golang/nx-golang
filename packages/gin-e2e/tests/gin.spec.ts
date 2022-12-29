@@ -47,7 +47,6 @@ describe('gin e2e', () => {
     // const resultLint = await runNxCommandAsync(`lint ${appName}`);
     // expect(resultLint.stdout).toContain(`Executing command: go fmt `);
   });
-
   afterAll(() => {
     // `nx reset` kills the daemon, and performs
     // some work which can help clean up e2e leftovers

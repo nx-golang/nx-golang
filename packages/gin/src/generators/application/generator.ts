@@ -9,6 +9,7 @@ import {
 } from '@nrwl/devkit';
 import * as path from 'path';
 import { ApplicationGeneratorSchema } from './schema';
+
 import { toPosixPath, createGoMod, updateGoWork } from '../../util';
 
 interface NormalizedSchema extends ApplicationGeneratorSchema {
@@ -54,7 +55,6 @@ function addFiles(tree: Tree, options: NormalizedSchema) {
     options.projectRoot,
     templateOptions
   );
-
   createGoMod(tree, options);
   updateGoWork(tree, options);
 }
