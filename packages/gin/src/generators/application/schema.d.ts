@@ -1,4 +1,4 @@
-export interface CobraGeneratorSchema {
+export interface ApplicationGeneratorSchema {
   name: string;
   tags?: string;
   directory?: string;

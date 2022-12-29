@@ -8,9 +8,9 @@ import {
   Tree,
 } from '@nrwl/devkit';
 import * as path from 'path';
-import { CobraGeneratorSchema } from './schema';
+import { ApplicationGeneratorSchema } from './schema';
 
-interface NormalizedSchema extends CobraGeneratorSchema {
+interface NormalizedSchema extends ApplicationGeneratorSchema {
   projectName: string;
   projectRoot: string;
   projectDirectory: string;
@@ -19,7 +19,7 @@ interface NormalizedSchema extends CobraGeneratorSchema {
 
 function normalizeOptions(
   tree: Tree,
-  options: CobraGeneratorSchema
+  options: ApplicationGeneratorSchema
 ): NormalizedSchema {
   const name = names(options.name).fileName;
   const projectDirectory = options.directory
@@ -55,7 +55,10 @@ function addFiles(tree: Tree, options: NormalizedSchema) {
   );
 }
 
-export default async function (tree: Tree, options: CobraGeneratorSchema) {
+export default async function (
+  tree: Tree,
+  options: ApplicationGeneratorSchema
+) {
   const normalizedOptions = normalizeOptions(tree, options);
   addProjectConfiguration(tree, normalizedOptions.projectName, {
     root: normalizedOptions.projectRoot,
@@ -63,7 +66,7 @@ export default async function (tree: Tree, options: CobraGeneratorSchema) {
     sourceRoot: `${normalizedOptions.projectRoot}/src`,
     targets: {
       build: {
-        executor: '@nx-golang/cobra:build',
+        executor: '@nx-golang/gin:build',
       },
     },
     tags: normalizedOptions.parsedTags,

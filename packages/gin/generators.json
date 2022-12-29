@@ -3,10 +3,10 @@
   "name": "gin",
   "version": "0.0.1",
   "generators": {
-    "gin": {
-      "factory": "./src/generators/gin/generator",
-      "schema": "./src/generators/gin/schema.json",
-      "description": "gin generator"
+    "application": {
+      "factory": "./src/generators/application/generator",
+      "schema": "./src/generators/application/schema.json",
+      "description": "Generate a skeleton gin app"
     }
   }
 }

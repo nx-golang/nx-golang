@@ -15,7 +15,6 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@nx-golang/cobra": ["packages/cobra/src/index.ts"],
       "@nx-golang/gin": ["packages/gin/src/index.ts"]
     }
   },

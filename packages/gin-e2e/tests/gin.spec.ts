@@ -16,41 +16,14 @@ describe('gin e2e', () => {
   beforeAll(() => {
     ensureNxProject('@nx-golang/gin', 'dist/packages/gin');
   });
+  it('should create an gin application', async () => {
+    const appName = uniq('app');
+    await runNxCommandAsync(`generate @nx-golang/gin:application ${appName}`);
+  });
 
   afterAll(() => {
     // `nx reset` kills the daemon, and performs
     // some work which can help clean up e2e leftovers
     runNxCommandAsync('reset');
-  });
-
-  it('should create gin', async () => {
-    const project = uniq('gin');
-    await runNxCommandAsync(`generate @nx-golang/gin:gin ${project}`);
-    const result = await runNxCommandAsync(`build ${project}`);
-    expect(result.stdout).toContain('Executor ran');
-  }, 120000);
-
-  describe('--directory', () => {
-    it('should create src in the specified directory', async () => {
-      const project = uniq('gin');
-      await runNxCommandAsync(
-        `generate @nx-golang/gin:gin ${project} --directory subdir`
-      );
-      expect(() =>
-        checkFilesExist(`libs/subdir/${project}/src/index.ts`)
-      ).not.toThrow();
-    }, 120000);
-  });
-
-  describe('--tags', () => {
-    it('should add tags to the project', async () => {
-      const projectName = uniq('gin');
-      ensureNxProject('@nx-golang/gin', 'dist/packages/gin');
-      await runNxCommandAsync(
-        `generate @nx-golang/gin:gin ${projectName} --tags e2etag,e2ePackage`
-      );
-      const project = readJson(`libs/${projectName}/project.json`);
-      expect(project.tags).toEqual(['e2etag', 'e2ePackage']);
-    }, 120000);
   });
 });

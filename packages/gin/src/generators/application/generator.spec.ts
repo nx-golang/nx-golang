@@ -2,11 +2,11 @@ import { createTreeWithEmptyWorkspace } from '@nrwl/devkit/testing';
 import { Tree, readProjectConfiguration } from '@nrwl/devkit';
 
 import generator from './generator';
-import { GinGeneratorSchema } from './schema';
+import { ApplicationGeneratorSchema } from './schema';
 
-describe('gin generator', () => {
+describe('application generator', () => {
   let appTree: Tree;
-  const options: GinGeneratorSchema = { name: 'test' };
+  const options: ApplicationGeneratorSchema = { name: 'test' };
 
   beforeEach(() => {
     appTree = createTreeWithEmptyWorkspace();
