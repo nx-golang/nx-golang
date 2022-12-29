@@ -16,6 +16,10 @@ describe('gin e2e', () => {
   beforeAll(() => {
     ensureNxProject('@nx-golang/gin', 'dist/packages/gin');
   });
+  it('should create an gin application', async () => {
+    const appName = uniq('app');
+    await runNxCommandAsync(`generate @nx-golang/gin:application ${appName}`);
+  });
 
   afterAll(() => {
     // `nx reset` kills the daemon, and performs
