@@ -44,8 +44,10 @@ describe('gin e2e', () => {
     // );
     // expect(resultTestSkip.stdout).not.toContain(` -cover -race `);
 
-    // const resultLint = await runNxCommandAsync(`lint ${appName}`);
-    // expect(resultLint.stdout).toContain(`Executing command: go fmt `);
+    const resultLint = await runNxCommandAsync(`lint ${appName}`);
+    expect(resultLint.stdout).toContain(
+      `Successfully ran target lint for project ${appName}`
+    );
   });
   afterAll(() => {
     // `nx reset` kills the daemon, and performs

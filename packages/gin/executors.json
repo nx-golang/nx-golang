@@ -1,4 +1,10 @@
 {
   "$schema": "http://json-schema.org/schema",
-  "executors": {}
+  "executors": {
+    "lint": {
+      "implementation": "./src/executors/lint/executor",
+      "schema": "./src/executors/lint/schema.json",
+      "description": "lint executor"
+    }
+  }
 }
