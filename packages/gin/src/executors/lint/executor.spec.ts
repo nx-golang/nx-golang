@@ -24,6 +24,8 @@ const sampleContext = {
   },
 }
 
+jest.setTimeout(120*1000)
+
 describe('Lint Executor', () => {
   afterEach(() => jest.clearAllMocks())
 
