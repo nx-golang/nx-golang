@@ -1,0 +1,54 @@
+name: Run e2e tests
+
+on:
+  create:
+    tags:
+      - *
+
+jobs:
+  run_e2e:
+    name: Run e2e
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x, 16.x]
+        go-version: [1.18.0, 1.19.4]
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Use Go ${{ matrix.go-version }}
+        uses: actions/setup-go@v3
+        with:
+          go-version: ${{ matrix.go-version }}
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Cache pnpm modules
+        uses: actions/cache@v2
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-
+      - name: Install dependencies
+        uses: pnpm/action-setup@v2.0.1
+        with:
+          version: 6.24.3
+          run_install: |
+            - args: [--frozen-lockfile, --strict-peer-dependencies]
+      - name: Run build
+        run: pnpm run nx affected:build
+      - name: Publish components (Github packages)
+        run: |
+          for APP in $(pnpm run nx affected:apps --base=$last_version --head=$current_version --plain | awk 'NR > 2 && $1 != "Done" { print $1 }')
+          do
+            cd ./dist/packages/$APP
+            npm publish --no-git-tag-version --no-push --yes
+            cd ..
+            cd ..
+          done
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
