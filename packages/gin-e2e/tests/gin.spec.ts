@@ -2,6 +2,7 @@ import {
   checkFilesExist,
   ensureNxProject,
   readJson,
+  readFile,
   runNxCommandAsync,
   uniq,
 } from '@nrwl/nx-plugin/testing';
@@ -19,8 +20,33 @@ describe('gin e2e', () => {
   it('should create an gin application', async () => {
     const appName = uniq('app');
     await runNxCommandAsync(`generate @nx-golang/gin:application ${appName}`);
-  });
+    expect(() => checkFilesExist(`apps/${appName}/main.go`));
+    expect(() => checkFilesExist(`apps/${appName}/go.mod`));
+    expect(() => checkFilesExist(`apps/${appName}/go.work`));
+    expect(readFile(`apps/${appName}/go.mod`)).toContain(appName);
 
+    // const resultBuild = await runNxCommandAsync(`build ${appName}`);
+    // expect(resultBuild.stdout).toContain(`Executing command: go build`);
+
+    // const resultServe = await runNxCommandAsync(`serve ${appName}`);
+    // expect(resultServe.stdout).toContain(`Executing command: go run main.go`);
+
+    // const resultTest = await runNxCommandAsync(`test ${appName}`);
+    // expect(resultTest.stdout).toContain(
+    //   `Executing command: go test -v ./... -cover -race`
+    // );
+
+    // const resultTestSkip = await runNxCommandAsync(
+    //   `test ${appName} --skip-cover --skip-race`
+    // );
+    // expect(resultTestSkip.stdout).toContain(
+    //   `Executing command: go test -v ./...`
+    // );
+    // expect(resultTestSkip.stdout).not.toContain(` -cover -race `);
+
+    // const resultLint = await runNxCommandAsync(`lint ${appName}`);
+    // expect(resultLint.stdout).toContain(`Executing command: go fmt `);
+  });
   afterAll(() => {
     // `nx reset` kills the daemon, and performs
     // some work which can help clean up e2e leftovers
