@@ -3,7 +3,7 @@ name: Release
 on:
   create:
     tags:
-      - *
+      - '*'
 
 jobs:
   run_e2e:
