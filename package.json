@@ -14,13 +14,13 @@
   },
   "private": true,
   "dependencies": {
-    "@jscutlery/semver": "^2.29.3",
     "@nrwl/nx-plugin": "^15.4.2",
     "@nx-go/nx-go": "^2.7.0",
     "@swc/helpers": "~0.4.11",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
+    "@jscutlery/semver": "^2.29.3",
     "@nrwl/devkit": "15.4.2",
     "@nrwl/eslint-plugin-nx": "15.4.2",
     "@nrwl/jest": "15.4.2",
