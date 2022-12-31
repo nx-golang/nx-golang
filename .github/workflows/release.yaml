@@ -45,8 +45,8 @@ jobs:
         run: |
           for d in dist/packages/*/ ; do
               pushd "$d"
-              echo $(pwd)
+              npm publish
               popd
           done
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

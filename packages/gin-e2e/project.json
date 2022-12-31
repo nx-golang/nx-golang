@@ -10,6 +10,12 @@
         "target": "gin:build",
         "jestConfig": "packages/gin-e2e/jest.config.ts"
       }
+    },
+    "version": {
+      "executor": "@jscutlery/semver:version",
+      "options": {
+        "preset": "conventional"
+      }
     }
   },
   "tags": [],

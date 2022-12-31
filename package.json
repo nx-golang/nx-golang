@@ -10,7 +10,8 @@
     "lint": "nx affected:lint --maxWarnings=0  --base origin/main",
     "nx": "nx",
     "start": "nx serve",
-    "test": "nx test"
+    "test": "nx test",
+    "prepare": "husky install"
   },
   "private": true,
   "dependencies": {
@@ -20,6 +21,8 @@
     "tslib": "^2.3.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.0.0",
+    "@commitlint/config-conventional": "^17.0.0",
     "@jscutlery/semver": "^2.29.3",
     "@nrwl/devkit": "15.4.2",
     "@nrwl/eslint-plugin-nx": "15.4.2",
@@ -37,6 +40,7 @@
     "@typescript-eslint/parser": "^5.36.1",
     "eslint": "~8.15.0",
     "eslint-config-prettier": "8.1.0",
+    "husky": "^8.0.0",
     "jest": "28.1.1",
     "jest-environment-jsdom": "28.1.1",
     "jsonc-eslint-parser": "^2.1.0",

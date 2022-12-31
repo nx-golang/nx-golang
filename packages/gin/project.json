@@ -7,9 +7,7 @@
     "version": {
       "executor": "@jscutlery/semver:version",
       "options": {
-        "baseBranch": "main",
-        "preset": "conventional",
-        "tagPrefix": "${projectName}@"
+        "preset": "conventional"
       }
     },
     "build": {
