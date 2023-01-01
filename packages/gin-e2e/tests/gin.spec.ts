@@ -6,7 +6,7 @@ import {
   runNxCommandAsync,
   uniq,
 } from '@nrwl/nx-plugin/testing';
-
+jest.setTimeout(60 * 1000);
 describe('gin e2e', () => {
   // Setting up individual workspaces per
   // test can cause e2e runs to take a long time.
@@ -25,8 +25,8 @@ describe('gin e2e', () => {
     expect(() => checkFilesExist(`apps/${appName}/go.work`));
     expect(readFile(`apps/${appName}/go.mod`)).toContain(appName);
 
-    // const resultBuild = await runNxCommandAsync(`build ${appName}`);
-    // expect(resultBuild.stdout).toContain(`Executing command: go build`);
+    const resultBuild = await runNxCommandAsync(`build ${appName}`);
+    expect(resultBuild.stdout).toContain(`Executing command: go build`);
 
     // const resultServe = await runNxCommandAsync(`serve ${appName}`);
     // expect(resultServe.stdout).toContain(`Executing command: go run main.go`);

@@ -3,7 +3,7 @@ name: Release
 on:
   create:
     tags:
-      - '*'
+      - 'gin@*'
 
 jobs:
   run_e2e:
@@ -43,10 +43,8 @@ jobs:
         run: pnpm run nx affected:build
       - name: Publish components (Github packages)
         run: |
-          for d in dist/packages/*/ ; do
-              pushd "$d"
-              npm publish
-              popd
-          done
+          pushd "dist/packages/gin"
+          npm publish
+          popd
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}

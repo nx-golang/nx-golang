@@ -1,11 +1,35 @@
 import { Tree } from '@nrwl/devkit';
 import { join } from 'path';
 import { execSync } from 'child_process';
+import { ExecutorContext } from '@nrwl/devkit';
 
 const MODULES_REGEX = /use\s+\((?<modules>[^)]*)\)/g;
 
 const GO_MOD_FILE = 'go.mod';
 const GO_WORK_FILE = 'go.work';
+
+export function runGoCommand(
+  context: ExecutorContext,
+  command: 'build' | 'fmt' | 'run' | 'test',
+  params: string[],
+  options: { cwd?: string; cmd?: string } = {}
+): { success: boolean } {
+  // Take the parameters or set defaults
+  const cmd = options.cmd || 'go';
+  const cwd = options.cwd || process.cwd();
+
+  // Create the command to execute
+  const execute = `${cmd} ${command} ${params.join(' ')}`;
+
+  try {
+    console.log(`Executing command: ${execute}`);
+    execSync(execute, { cwd, stdio: [0, 1, 2] });
+    return { success: true };
+  } catch (e) {
+    console.error(`Failed to execute command: ${execute}`, e);
+    return { success: false };
+  }
+}
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function createGoMod(tree: Tree, { projectRoot }: any) {
