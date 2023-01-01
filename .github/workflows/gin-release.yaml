@@ -42,10 +42,8 @@ jobs:
             - args: [--frozen-lockfile, --strict-peer-dependencies]
       - name: Run build
         run: pnpm run nx run gin:build
-      - name: Publish components (Github packages)
-        run: |
-          pushd "dist/packages/gin"
-          npm publish
-          popd
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
+      - uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NODE_AUTH_TOKEN }}
+          package: "dist/packages/gin/package.json"
+
