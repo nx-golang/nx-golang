@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.3.0](https://github.com/nx-golang/nx-golang/compare/gin-0.2.0...gin-0.3.0) (2023-01-01)
+
+
+### Features
+
+* minimum proj setup ([#5](https://github.com/nx-golang/nx-golang/issues/5)) ([ceaff2b](https://github.com/nx-golang/nx-golang/commit/ceaff2b428fd38e401b7441ab24a274e732c915e))
+
 ## [0.2.0](https://github.com/nx-golang/nx-golang/compare/gin-0.1.2...gin-0.2.0) (2023-01-01)
 
 
