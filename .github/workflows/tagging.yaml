@@ -6,8 +6,8 @@ on:
       - main
 
 jobs:
-  run_e2e:
-    name: Run e2e
+  version_bump_and_tagging:
+    name: Version bump and tagging
     runs-on: ubuntu-latest
     strategy:
       matrix:
