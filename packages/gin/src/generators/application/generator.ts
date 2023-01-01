@@ -49,6 +49,7 @@ function addFiles(tree: Tree, options: NormalizedSchema) {
     offsetFromRoot: offsetFromRoot(options.projectRoot),
     template: '',
   };
+  console.log(templateOptions)
   generateFiles(
     tree,
     path.join(__dirname, 'files'),
