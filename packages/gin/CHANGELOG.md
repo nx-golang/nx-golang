@@ -9,6 +9,13 @@ This file was generated using [@jscutlery/semver](https://github.com/jscutlery/s
 
 * add readme ([a3a613e](https://github.com/nx-golang/nx-golang/commit/a3a613ef3a3ab2fc3b03bf8e93e8b54dd13ca234))
 
+## [0.2.0](https://github.com/nx-golang/nx-golang/compare/gin-0.1.2...gin-0.2.0) (2023-01-01)
+
+
+### Features
+
+* add readme ([a3a613e](https://github.com/nx-golang/nx-golang/commit/a3a613ef3a3ab2fc3b03bf8e93e8b54dd13ca234))
+
 ## [0.1.2](https://github.com/nx-golang/nx-golang/compare/gin-0.1.1...gin-0.1.2) (2023-01-01)
 
 
