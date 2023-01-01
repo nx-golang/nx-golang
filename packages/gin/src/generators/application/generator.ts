@@ -63,19 +63,22 @@ export default async function (
   tree: Tree,
   options: ApplicationGeneratorSchema
 ) {
-  const normalizedOptions = normalizeOptions(
-    tree,
-    options
-  );
+  const normalizedOptions = normalizeOptions(tree, options);
+
   addProjectConfiguration(tree, normalizedOptions.projectName, {
     root: normalizedOptions.projectRoot,
     projectType: 'application',
-    sourceRoot: `${normalizedOptions.projectRoot}/src`,
+    sourceRoot: `${normalizedOptions.projectRoot}`,
     targets: {
       build: {
         executor: '@nx-golang/gin:build',
         options: {
-          outputPath: toPosixPath,
+          outputPath: toPosixPath(
+            path.join(path.normalize('dist'), normalizedOptions.projectRoot)
+          ),
+          main: toPosixPath(
+            path.join(normalizedOptions.projectRoot, 'main.go')
+          ),
         },
       },
       serve: {

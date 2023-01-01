@@ -6,7 +6,7 @@ import {
   runNxCommandAsync,
   uniq,
 } from '@nrwl/nx-plugin/testing';
-
+jest.setTimeout(60 * 1000);
 describe('gin e2e', () => {
   // Setting up individual workspaces per
   // test can cause e2e runs to take a long time.

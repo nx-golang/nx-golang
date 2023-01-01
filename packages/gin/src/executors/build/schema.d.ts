@@ -1,4 +1,4 @@
 export interface BuildExecutorSchema {
-  outputPath: string
-  main: string
+  outputPath?: string
+  main?: string
 }
