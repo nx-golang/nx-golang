@@ -40,4 +40,4 @@ jobs:
           run_install: |
             - args: [--frozen-lockfile, --strict-peer-dependencies]
       - name: Run auto version
-        run: pnpm exec nx affected --target version --push
+        run: pnpm exec nx run gin:version --push

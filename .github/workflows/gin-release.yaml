@@ -6,8 +6,8 @@ on:
       - 'gin@*'
 
 jobs:
-  run_e2e:
-    name: Run e2e
+  release:
+    name: Release
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -40,7 +40,7 @@ jobs:
           run_install: |
             - args: [--frozen-lockfile, --strict-peer-dependencies]
       - name: Run build
-        run: pnpm run nx affected:build
+        run: pnpm run nx run gin:build
       - name: Publish components (Github packages)
         run: |
           pushd "dist/packages/gin"
