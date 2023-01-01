@@ -10,7 +10,7 @@ const GO_WORK_FILE = 'go.work';
 
 export function runGoCommand(
   context: ExecutorContext,
-  command: 'build' | 'fmt' | 'run' | 'test',
+  command: 'build' | 'fmt' | 'run' | 'test' | 'mod',
   params: string[],
   options: { cwd?: string; cmd?: string } = {}
 ): { success: boolean } {
