@@ -40,4 +40,7 @@ jobs:
           run_install: |
             - args: [--frozen-lockfile, --strict-peer-dependencies]
       - name: Run auto version
-        run: pnpm exec nx run gin:version --push
+        run: |
+          git config --global user.email "di.zou1214@gmail.com"
+          git config --global user.name "Di Zou"
+          pnpm exec nx run gin:version --push
