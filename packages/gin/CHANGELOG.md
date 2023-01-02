@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.5.1](https://github.com/nx-golang/nx-golang/compare/gin-0.5.0...gin-0.5.1) (2023-01-02)
+
+
+### Bug Fixes
+
+* update package json ([49cb307](https://github.com/nx-golang/nx-golang/commit/49cb30768382fd68389a8e0784b0333460285f4f))
+
 ## [0.5.0](https://github.com/nx-golang/nx-golang/compare/gin-0.4.0...gin-0.5.0) (2023-01-02)
 
 

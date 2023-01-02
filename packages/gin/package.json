@@ -1,6 +1,6 @@
 {
   "name": "@nx-golang/gin",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "main": "src/index.js",
   "author": "Di Zou <di.zou1214@gmail.com>",
   "generators": "./generators.json",
