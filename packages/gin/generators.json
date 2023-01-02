@@ -4,6 +4,7 @@
   "version": "0.0.1",
   "generators": {
     "application": {
+      "aliases": ["app"],
       "factory": "./src/generators/application/generator",
       "schema": "./src/generators/application/schema.json",
       "description": "Generate a skeleton gin app"
