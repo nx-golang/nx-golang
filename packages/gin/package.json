@@ -2,6 +2,8 @@
   "name": "@nx-golang/gin",
   "version": "0.5.0",
   "main": "src/index.js",
+  "author": "Di Zou <di.zou1214@gmail.com>",
   "generators": "./generators.json",
-  "executors": "./executors.json"
+  "executors": "./executors.json",
+  "repository": "github:nx-golang/nx-golang"
 }
