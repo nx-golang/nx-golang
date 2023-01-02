@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.5.0](https://github.com/nx-golang/nx-golang/compare/gin-0.4.0...gin-0.5.0) (2023-01-02)
+
+
+### Features
+
+* add app aliases ([#7](https://github.com/nx-golang/nx-golang/issues/7)) ([df469db](https://github.com/nx-golang/nx-golang/commit/df469db6e951ff4f2b151ce3718aae73243ffc93))
+
 ## [0.4.0](https://github.com/nx-golang/nx-golang/compare/gin-0.3.0...gin-0.4.0) (2023-01-02)
 
 
