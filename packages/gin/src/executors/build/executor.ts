@@ -11,12 +11,14 @@ export default async function runExecutor(
   const output = `-o ${options.outputPath}${
     process.platform === 'win32' ? '.exe' : ''
   }`;
+  const projectName = context.projectName
+  const sourceRoot = context.workspace.projects[projectName].sourceRoot;
   // get deps
   runGoCommand(context, 'mod', ['tidy'], {
-    cwd: path.join(context.cwd, 'apps', context.projectName),
+    cwd: path.join(context.cwd, sourceRoot),
   });
   runGoCommand(context, 'mod', ['vendor'], {
-    cwd: path.join(context.cwd, 'apps', context.projectName),
+    cwd: path.join(context.cwd, sourceRoot),
   });
   return runGoCommand(context, 'build', [output, mainFile]);
 }
