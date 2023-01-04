@@ -1,6 +1,10 @@
-# Changelog
+Powered By @nx-golang
+## [0.7.1](https://github.com/nx-golang/nx-golang/compare/gin-0.7.0...gin-0.7.1) (2023-01-04)
 
-This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
+
+### Bug Fixes
+
+* update change log header ([c604152](https://github.com/nx-golang/nx-golang/commit/c6041520141b151f1ed540b740eb09eca9c688f6))
 
 ## [0.7.0](https://github.com/nx-golang/nx-golang/compare/gin-0.6.0...gin-0.7.0) (2023-01-04)
 
