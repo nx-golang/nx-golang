@@ -70,12 +70,13 @@ nx build gin-app
 ```
 
 ### Serve (TBD)
-<!-- 
+
 You can serve an application with the following command:
 
 ```shell
 nx serve gin-app
 ```
+<!-- 
 
 The `serve` command runs the `build` target, and executes the application.
 
@@ -112,4 +113,5 @@ nx test gin-lib
 ```
 
 ## More Documentation
+
 TBD
