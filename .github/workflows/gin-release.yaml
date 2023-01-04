@@ -46,4 +46,8 @@ jobs:
         with:
           token: ${{ secrets.NODE_AUTH_TOKEN }}
           package: "dist/packages/gin/package.json"
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          body_path: dist/packages/gin/CHANGELOG.md
 
