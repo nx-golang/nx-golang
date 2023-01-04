@@ -83,7 +83,7 @@ export default async function (
         },
       },
       serve: {
-        executor: '@nx-golang/gin:serve',
+        executor: '@nx-go/nx-go:serve',
         options: {
           main: toPosixPath(
             path.join(normalizedOptions.projectRoot, 'main.go')
@@ -91,7 +91,7 @@ export default async function (
         },
       },
       test: {
-        executor: '@nx-golang/gin:test',
+        executor: '@nx-go/nx-go:test',
       },
       lint: {
         executor: '@nx-golang/gin:lint',

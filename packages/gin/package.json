@@ -6,5 +6,8 @@
   "author": "Di Zou <di.zou1214@gmail.com>",
   "generators": "./generators.json",
   "executors": "./executors.json",
-  "repository": "github:nx-golang/nx-golang"
+  "repository": "github:nx-golang/nx-golang",
+  "dependencies": {
+    "@nx-go/nx-go": "2.7.0"
+  }
 }

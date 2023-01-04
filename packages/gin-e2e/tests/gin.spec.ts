@@ -31,18 +31,18 @@ describe('gin e2e', () => {
     // const resultServe = await runNxCommandAsync(`serve ${appName}`);
     // expect(resultServe.stdout).toContain(`Executing command: go run main.go`);
 
-    // const resultTest = await runNxCommandAsync(`test ${appName}`);
-    // expect(resultTest.stdout).toContain(
-    //   `Executing command: go test -v ./... -cover -race`
-    // );
+    const resultTest = await runNxCommandAsync(`test ${appName}`);
+    expect(resultTest.stdout).toContain(
+      `Executing command: go test -v ./... -cover -race`
+    );
 
-    // const resultTestSkip = await runNxCommandAsync(
-    //   `test ${appName} --skip-cover --skip-race`
-    // );
-    // expect(resultTestSkip.stdout).toContain(
-    //   `Executing command: go test -v ./...`
-    // );
-    // expect(resultTestSkip.stdout).not.toContain(` -cover -race `);
+    const resultTestSkip = await runNxCommandAsync(
+      `test ${appName} --skip-cover --skip-race`
+    );
+    expect(resultTestSkip.stdout).toContain(
+      `Executing command: go test -v ./...`
+    );
+    expect(resultTestSkip.stdout).not.toContain(` -cover -race `);
 
     const resultLint = await runNxCommandAsync(`lint ${appName}`);
     expect(resultLint.stdout).toContain(
