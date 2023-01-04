@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.7.0](https://github.com/nx-golang/nx-golang/compare/gin-0.6.0...gin-0.7.0) (2023-01-04)
+
+
+### Features
+
+* add minimum serve support in docs ([6c19f4c](https://github.com/nx-golang/nx-golang/commit/6c19f4cbad2597de2fde496b8b5b8fd7e5316738))
+
 ## [0.6.0](https://github.com/nx-golang/nx-golang/compare/gin-0.5.3...gin-0.6.0) (2023-01-04)
 
 

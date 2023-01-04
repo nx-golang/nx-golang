@@ -1,6 +1,6 @@
 {
   "name": "@nx-golang/gin",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "license": "MIT",
   "main": "src/index.js",
   "author": "Di Zou <di.zou1214@gmail.com>",
