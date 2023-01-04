@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.6.0](https://github.com/nx-golang/nx-golang/compare/gin-0.5.3...gin-0.6.0) (2023-01-04)
+
+
+### Features
+
+* add test and serve cmd ([ddeca88](https://github.com/nx-golang/nx-golang/commit/ddeca888a471bcec9cffdedffd37b63cd47922a8))
+
 ## [0.5.3](https://github.com/nx-golang/nx-golang/compare/gin-0.5.2...gin-0.5.3) (2023-01-03)
 
 
